@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head th:replace="fragments :: head"></head>
+
+<body class="container  body-content">
+<h1 th:text="${'Object: ' + object.name}">Default Title</h1>
+
+<nav th:replace="fragments :: page-header"></nav>
+
+<div class="job-listing">
+    <p th:text="${'Name: ' + object.name}"></p>
+    <p th:text="${'ID: ' + object.id}"></p>
+    <p th:text="${'Location: ' + object.location}"></p>
+    <p th:text="${'Description: ' + object.description}"></p>
+    <p>
+        Object Name: <a th:href="@{'/objects/view/' + ${view.object.name}}" th:text="${view.object.name}"></a>
+    </p>
+    <p> ID:
+    <ul>
+        <li th:each="id : ${object.id}">
+            <a th:href="@{'/obects/view/' + ${object.id}}" th:text="${object.name}"></a>
+        </li>
+    </ul>
+    </p>
+    <p> Location:
+    <ul>
+        <li th:each="location : ${object.locations}">
+            <a th:href="@{'/objects/view/' + ${object.location}}" th:text="${object.name}"></a>
+        </li>
+    </ul>
+    </p>
+    <p> Description:
+    <ul>
+        <li th:each="description : ${object.descriptions}">
+            <a th:href="@{'/objects/view/' + ${object.description}}" th:text="${object.name}"></a>
+        </li>
+    </ul>
+    </p>
+</div>
+</body>
+</html>

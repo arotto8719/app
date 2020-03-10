@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org/">
+<head th:replace="fragments :: head">
+</head>
+<body>
+
+<div th:replace="fragments :: page-header"></div>
+
+<div class="container body-content">
+
+    <h1 th:text="${title}"></h1>
+
+    <h2>Search by:</h2>
+
+    <form action="search/results">
+        <p>
+            <span th:each="column : ${columns}">
+                <input
+                        type="radio"
+                        name="searchType"
+                        th:id="${column.key}"
+                        th:value="${column.key}"
+                        th:checked="${column.key == 'all'}"/>
+                <label th:for="${column.key}" th:text="${column.value}"></label>
+            </span>
+
+        </p>
+
+        <p>
+            <label for="searchTerm">Keyword:</label>
+            <input type="text" name="searchTerm" id="searchTerm" />
+        </p>
+
+        <input type="submit" value="Search">
+    </form>
+
+    <hr />
+
+    <table class="object-listing">
+        <tr th:each="search : ${searches}">
+
+            <td th:text="${search.getName()}">ObjectName: </td>
+            <td th:text="${search.getId()}">ID: </td>
+            <td th:text="${search.getLocation()}">Location: </td>
+            <td th:text="${search.getDescription()}">Description: </td>
+        </tr>
+    </table>
+</div>
+
+</body>
+</html>
