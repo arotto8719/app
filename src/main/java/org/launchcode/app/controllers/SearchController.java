@@ -7,9 +7,9 @@ import org.springframework.web.bind.annotation.ResponseBody;
 @Controller
 public class SearchController {
 
-@RequestMapping("search")
+@RequestMapping("/search")
 @ResponseBody
     public String search() {
-        return "index";
+        return "search/index";
     }
 }
