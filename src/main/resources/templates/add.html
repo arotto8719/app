@@ -18,8 +18,8 @@
         <label th:for="object">ID</label>
         <select name="objectId">
             <option th:each="object : ${objects}"
-                    th:text="${employer.name}"
-                    th:value="${employer.id}"></option>
+                    th:text="${object.name}"
+                    th:value="${object.id}"></option>
         </select>
         <a th:href="@{'/objects/add'}">Add ID</a>
     </div>
@@ -28,7 +28,7 @@
         <label th:for="locations">Location</label>
         <th:block th:each="location : ${locations}">
             <input type="checkbox" name="location" th:value="${object.location}">
-            <label th:text="${skill.name}"></label>
+            <label th:text="${object.name}"></label>
         </th:block>
         <a th:href="@{'/locations/add'}">Add Location</a>
     </div>
@@ -37,7 +37,7 @@
         <label th:for="locations">Description</label>
         <th:block th:each="description : ${descriptions}">
             <input type="checkbox" name="description" th:value="${object.description}">
-            <label th:text="${skill.name}"></label>
+            <label th:text="${object.name}"></label>
         </th:block>
         <a th:href="@{'/descriptions/add'}">Add Description</a>
     </div>

@@ -10,6 +10,6 @@ public class SearchController {
 @RequestMapping("/search")
 @ResponseBody
     public String search() {
-        return "search/index";
+        return "search objects";
     }
 }
