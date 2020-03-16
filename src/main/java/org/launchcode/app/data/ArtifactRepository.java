@@ -1,7 +1,7 @@
-package data;
+package org.launchcode.app.data;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface ObjectRepository extends CrudRepository<Object, Integer>{
+public interface ArtifactRepository extends CrudRepository<Object, Integer>{
 }
