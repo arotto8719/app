@@ -5,21 +5,31 @@
 
 <nav th:replace="fragments :: page-header"></nav>
 
-<h1>Add Object</h1>
+<h1>Add Artifact</h1>
 
 <form method="post" style="max-width:600px;">
     <div class="form-group">
-        <label th:for="name">Object Name</label>
-        <input class="form-control" th:field="${object.name}" />
-        <span th:errors="${object.name}" class="error"></span>
+        <label th:for="name">Artifact</label>
+        <input class="form-control" th:field="${artifact.name}" />
+        <span th:errors="${artifact.name}" class="error"></span>
     </div>
 
     <div class="form-group">
-        <label th:for="object">ID</label>
-        <select name="objectId">
-            <option th:each="object : ${objects}"
-                    th:text="${object.name}"
-                    th:value="${object.id}"></option>
+        <label th:for="artifact">Name</label>
+        <select name="artifactId">
+            <option th:each="artifact : ${artifacts}"
+                    th:text="${artifact.name}"
+                    th:value="${artifact.id}"></option>
+        </select>
+        <a th:href="@{'/artifacts/add'}">Add Name</a>
+    </div>
+
+    <div class="form-group">
+        <label th:for="artifact">ID</label>
+        <select name="artifactId">
+            <option th:each="artifact : ${artifacts}"
+                    th:text="${artifact.name}"
+                    th:value="${artifact.id}"></option>
         </select>
         <a th:href="@{'/objects/add'}">Add ID</a>
     </div>
@@ -27,8 +37,8 @@
     <div class="form-group">
         <label th:for="locations">Location</label>
         <th:block th:each="location : ${locations}">
-            <input type="checkbox" name="location" th:value="${object.location}">
-            <label th:text="${object.name}"></label>
+            <input type="checkbox" name="location" th:value="${artifact.location}">
+            <label th:text="${artifact.name}"></label>
         </th:block>
         <a th:href="@{'/locations/add'}">Add Location</a>
     </div>
@@ -36,13 +46,13 @@
     <div class="form-group">
         <label th:for="locations">Description</label>
         <th:block th:each="description : ${descriptions}">
-            <input type="checkbox" name="description" th:value="${object.description}">
-            <label th:text="${object.name}"></label>
+            <input type="checkbox" name="description" th:value="${artifact.description}">
+            <label th:text="${artifact.name}"></label>
         </th:block>
         <a th:href="@{'/descriptions/add'}">Add Description</a>
     </div>
 
-    <input type="submit" value="Add Object" />
+    <input type="submit" value="Add Artifact" />
 </form>
 
 </body>

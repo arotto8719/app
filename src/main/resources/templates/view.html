@@ -3,36 +3,36 @@
 <head th:replace="fragments :: head"></head>
 
 <body class="container  body-content">
-<h1 th:text="${'Object: ' + object.name}">Default Title</h1>
+<h1 th:text="${'Artifact: ' + artifact.name}">Default Title</h1>
 
 <nav th:replace="fragments :: page-header"></nav>
 
-<div class="job-listing">
-    <p th:text="${'Name: ' + object.name}"></p>
-    <p th:text="${'ID: ' + object.id}"></p>
-    <p th:text="${'Location: ' + object.location}"></p>
-    <p th:text="${'Description: ' + object.description}"></p>
+<div class="artifact-listing">
+    <p th:text="${'Name: ' + artifact.name}"></p>
+    <p th:text="${'ID: ' + artifact.id}"></p>
+    <p th:text="${'Location: ' + artifact.location}"></p>
+    <p th:text="${'Description: ' + artifact.description}"></p>
     <p>
-        Object Name: <a th:href="@{'/objects/view/' + ${view.object.name}}" th:text="${view.object.name}"></a>
+        Object Name: <a th:href="@{'/artifacts/view/' + ${view.artifact.name}}" th:text="${view.artifact.name}"></a>
     </p>
     <p> ID:
     <ul>
-        <li th:each="id : ${object.id}">
-            <a th:href="@{'/objects/view/' + ${object.id}}" th:text="${object.name}"></a>
+        <li th:each="id : ${artifact.id}">
+            <a th:href="@{'/artifacts/view/' + ${artifact.id}}" th:text="${artifact.name}"></a>
         </li>
     </ul>
     </p>
     <p> Location:
     <ul>
-        <li th:each="location : ${object.locations}">
-            <a th:href="@{'/objects/view/' + ${object.location}}" th:text="${object.name}"></a>
+        <li th:each="location : ${artifact.locations}">
+            <a th:href="@{'/artifact/view/' + ${artifact.location}}" th:text="${artifact.name}"></a>
         </li>
     </ul>
     </p>
     <p> Description:
     <ul>
-        <li th:each="description : ${object.descriptions}">
-            <a th:href="@{'/objects/view/' + ${object.description}}" th:text="${object.name}"></a>
+        <li th:each="description : ${artifact.descriptions}">
+            <a th:href="@{'/artifact/view/' + ${artifact.description}}" th:text="${artifact.name}"></a>
         </li>
     </ul>
     </p>

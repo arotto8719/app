@@ -2,6 +2,7 @@ package org.launchcode.app.controllers;
 
 import org.launchcode.app.data.Artifact;
 import org.launchcode.app.data.ArtifactRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.Errors;
@@ -14,6 +15,9 @@ import java.util.HashMap;
 @Controller
 public class HomeController {
 
+    @Autowired
+    private ArtifactRepository artifactRepository;
+
     @RequestMapping(value = "/")
     public String index(Model model) {
 
@@ -24,10 +28,20 @@ public class HomeController {
     }
 
     @GetMapping("add")
-    @ResponseBody
     public String displayAddArtifactForm(Model model) {
         model.addAttribute("artifact", new Artifact());
         return "add";
     }
- }
+//    @PostMapping("add")
+//    @ResponseBody
+//    public String processAddArtifactForm(@ModelAttribute @Valid artifact newArtifact,
+//                                         Errors errors) {
+//        if (errors.hasErrors()) {
+//            return "add";
+//        } else {
+//            ArtifactRepository.save(newArtifact);
+//            return "redirect:";
+//        }
+//    }
+}
 

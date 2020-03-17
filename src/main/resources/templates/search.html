@@ -36,10 +36,10 @@
 
     <hr />
 
-    <table class="object-listing">
+    <table class="artifact-listing">
         <tr th:each="search : ${searches}">
 
-            <td th:text="${search.getName()}">ObjectName: </td>
+            <td th:text="${search.getName()}">Name: </td>
             <td th:text="${search.getId()}">ID: </td>
             <td th:text="${search.getLocation()}">Location: </td>
             <td th:text="${search.getDescription()}">Description: </td>
