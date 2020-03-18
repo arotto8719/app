@@ -32,16 +32,16 @@ public class HomeController {
         model.addAttribute("artifact", new Artifact());
         return "add";
     }
-//    @PostMapping("add")
-//    @ResponseBody
-//    public String processAddArtifactForm(@ModelAttribute @Valid artifact newArtifact,
-//                                         Errors errors) {
-//        if (errors.hasErrors()) {
-//            return "add";
-//        } else {
-//            ArtifactRepository.save(newArtifact);
-//            return "redirect:";
-//        }
-//    }
+         @PostMapping("add")
+    @ResponseBody
+    public String processAddArtifactForm(@ModelAttribute @Valid Artifact newArtifact,
+                                         Errors errors) {
+        if (errors.hasErrors()) {
+            return "add";
+        } else {
+            artifactRepository.save(newArtifact);
+            return "redirect:";
+        }
+    }
 }
 
