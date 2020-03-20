@@ -15,15 +15,26 @@ import java.util.HashMap;
 @Controller
 public class HomeController {
 
+//    @GetMapping
+//    public String index() {
+//        return "index";
+//    }
+//
+//    @GetMapping
+//    public String add() {
+//        return "add";
+//    }
     @Autowired
     private ArtifactRepository artifactRepository;
 
     @RequestMapping(value = "/")
     public String index(Model model) {
-
-        HashMap<String, String> actionChoices = new HashMap<>();
-        actionChoices.put("search", "Search");
-        actionChoices.put("add", "Add");
+        model.addAttribute("search", "Search");
+        model.addAttribute("add", "Add");
+        model.addAttribute("artifacts", artifactRepository.findAll());
+//        HashMap<String, String> actionChoices = new HashMap<>();
+//        actionChoices.put("search", "Search");
+//        actionChoices.put("add", "Add");
         return "index";
     }
 
@@ -32,7 +43,8 @@ public class HomeController {
         model.addAttribute("artifact", new Artifact());
         return "add";
     }
-         @PostMapping("add")
+
+    @PostMapping("add")
     @ResponseBody
     public String processAddArtifactForm(@ModelAttribute @Valid Artifact newArtifact,
                                          Errors errors) {
