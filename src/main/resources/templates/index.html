@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org/">
 <head th:replace="fragments :: head">
+<link href="../static/css/app.css" th:href="@{/css/styles.css}" rel="stylesheet" />
 </head>
 <body>
 
@@ -15,4 +16,5 @@
 </div>
 <div th:replace="fragments :: page-header"></div>
 </body>
+<!--<button type="back" name="action" value="back">back</button>-->
 </html>

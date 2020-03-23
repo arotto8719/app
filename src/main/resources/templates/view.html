@@ -2,7 +2,7 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org/">
 <head th:replace="fragments :: head"></head>
 
-<body class="container  body-content">
+<body class ="container  body-content">
 <h1 th:text="${'Artifact: ' + artifact.name}">Default Title</h1>
 
 <nav th:replace="fragments :: page-header"></nav>
@@ -37,5 +37,6 @@
     </ul>
     </p>
 </div>
+<button type="back" name="action" value="back">back</button>
 </body>
 </html>
