@@ -55,5 +55,21 @@ public class HomeController {
             return "redirect:";
         }
     }
+    @GetMapping("delete")
+    public String renderDeleteArtifactForm(Model model) {
+        model.addAttribute("artifact", "Delete Artifact");
+//        model.addAttribute("artifacts", ArtifactsData.getAll());
+        return "delete";
+    }
+    @PostMapping("delete")
+    public String processArtifactsForm(@RequestParam(required = false) int[] ArtifactIds) {
+
+        if (ArtifactIds != null) {
+            for (int id : ArtifactIds) {
+//                ArtifactData.remove(id);
+            }
+        }
+        return "redirect:";
+    }
 }
 

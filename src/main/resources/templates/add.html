@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org/">
 <head th:replace="fragments :: head"></head>
+<link href="../static/css/app.css" th:href="@{/css/styles.css}" rel="stylesheet" />
 <body class="container body-content">
 
 <nav th:replace="fragments :: page-header"></nav>
@@ -38,6 +39,7 @@
     <input type="submit" value="Add Item" />
 </form>
 <button type="back" name="action" value="back">back</button>
+<button type="home" name="action" value="home">home</button>
 
 </body>
 </html>
