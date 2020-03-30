@@ -7,6 +7,8 @@
 
 <form method="post">
 
+    <a th:href="|@{/delete_artifact/${artifact.artifactId}}|" class="btn btn-danger">Delete</a>
+
     <th:block th:each="artifact : ${artifacts}">
         <div class="form-group">
             <label>

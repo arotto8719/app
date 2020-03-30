@@ -55,6 +55,12 @@ public class HomeController {
             return "redirect:";
         }
     }
+    @RequestMapping(value = "/delete_artifact/{artifactId}", method = RequestMethod.GET)
+    public String handleDeleteArtifact(@PathVariable String artifactId) {
+        System.out.println(artifactId);
+        System.out.println("test");
+        return "redirect:/external";
+    }
     @GetMapping("delete")
     public String renderDeleteArtifactForm(Model model) {
         model.addAttribute("artifact", "Delete Artifact");

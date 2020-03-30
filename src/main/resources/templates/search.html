@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org/">
 <head th:replace="fragments :: head">
-<link href="../static/css/app.css" th:href="@{/css/styles.css}" rel="stylesheet" />
+<!--<link href="../static/css/app.css" th:href="@{/css/styles.css}" rel="stylesheet" />-->
 </head>
 <body>
 
@@ -9,11 +9,12 @@
 
 <div class="container body-content">
 
-    <h1 th:text="${title}"></h1>
+    <h1 th:text="${#strings.capitalizeWords(title)}"></h1>
+
+    <form th:action="@{/search/results}" method = "post">
 
     <h2>Search by:</h2>
 
-    <form action="search/results">
         <p>
             <span th:each="column : ${columns}">
                 <input
@@ -48,6 +49,10 @@
     </table>
 </div>
 <button type="back" name="action" value="back">back</button>
+<button type="add" name="action" value="add">add</button>
+<button type="delete" name="action" value="delete">delete</button>
+<button type="database" name="action" value="database">Database</button>
+<button type="images" name="action" value="images">Images</button>
 <button type="home" name="action" value="home">home</button>
 </body>
 </html>
