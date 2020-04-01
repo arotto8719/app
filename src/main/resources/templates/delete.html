@@ -1,25 +1,41 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org/">
 <head th:replace="fragments :: head"></head>
-<body class="container">
+<body class="container body-content">
+
+<h1>Delete Item</h1>
 
 <header th:replace="fragments :: header"></header>
 
-<form method="post">
+<form method="post" style="max-width:600px;">
+    <div class="form-group">
+        <label th:for="name">Name</label>
+        <input class="form-control" th:field="${artifact.name}" />
+        <span th:errors="${artifact.name}" class="error"></span>
+    </div>
 
-    <a th:href="|@{/delete_artifact/${artifact.artifactId}}|" class="btn btn-danger">Delete</a>
-
-    <th:block th:each="artifact : ${artifacts}">
+    <form method="post" style="max-width:200px;">
         <div class="form-group">
-            <label>
-                <span th:text="${artifact.name}"></span>
-                <input type="checkbox" name="artifactIds" th:value="${artifact.id}" class="form-control">
-            </label>
+            <label th:for="id">ID</label>
+            <input class="form-control" th:field="${artifact.id}" />
+            <span th:errors="${artifact.id}" class="error"></span>
         </div>
-    </th:block>
 
-    <input type="submit" value="Delete Artifact" class="btn btn-danger">
-</form>
+        <form method="post" style="max-width:600px;">
+            <div class="form-group">
+                <label th:for="locations">Location</label>
+                <input class="form-control" th:field="${artifact.location}" />
+                <span th:errors="${artifact.location}" class="error"></span>
+            </div>
 
+            <form method="post" style="max-width:600px;">
+                <div class="form-group">
+                    <label th:for="descriptions">Description</label>
+                    <input class="form-control" th:field="${artifact.description}" />
+                    <span th:errors="${artifact.description}" class="error"></span>
+                </div>
+
+                <input type="delete" value="Delete Item" />
+            </form>
 </body>
 </html>

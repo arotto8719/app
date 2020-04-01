@@ -48,4 +48,10 @@ public class Artifact {
     public void setDescription(String description) {
         this.description = description;
     }
+
+//    @Override
+//    public void delete(int id) {
+//        artifactRepository.delete(id);
+//    }
 }
+

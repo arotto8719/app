@@ -39,14 +39,37 @@
     <hr />
 
     <table class="artifact-listing">
-        <tr th:each="search : ${searches}">
+        <tr th:each="artifact : ${artifacts}">
+            <td>
+                <p>
+                    Artifact Name:
+                    <a th:href="@{'/view/' + ${artifact.id}}" th:text="${artifact.id}"></a>
+                </p>
+                <p th:text="${'Name: ' + artifact.name}"></p>
+                <p>
+                    Artifact Id:
+                    <a th:href="@{'/view/' + ${artifact.id}}" th:text="${artifact.name}"></a>
+                </p>
+                <p>
+                    Location:
+                <ul th:each="artifact : ${artifact.location}">
+                    <li>
+                        <a th:href="@{'/artifacts/view/' + ${artifact.id}}" th:text="${artifact.name}"></a>
+                    </li>
+                </ul>
+                </p>
+                Description:
+                <ul th:each="artifact : ${artifact .descriptions}">
+                    <li>
+                        <a th:href="@{'/artifacts/view/' + ${artifact.id}}" th:text="${artifact.name}"></a>
+                    </li>
+                </ul>
+                </p>
 
-            <td th:text="${search.getName()}">Name: </td>
-            <td th:text="${search.getId()}">ID: </td>
-            <td th:text="${search.getLocation()}">Location: </td>
-            <td th:text="${search.getDescription()}">Description: </td>
+            </td>
         </tr>
     </table>
+
 </div>
 <button type="back" name="action" value="back">back</button>
 <button type="add" name="action" value="add">add</button>

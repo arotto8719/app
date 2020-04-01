@@ -55,27 +55,10 @@ public class HomeController {
             return "redirect:";
         }
     }
-    @RequestMapping(value = "/delete_artifact/{artifactId}", method = RequestMethod.GET)
-    public String handleDeleteArtifact(@PathVariable String artifactId) {
-        System.out.println(artifactId);
-        System.out.println("test");
-        return "redirect:/external";
-    }
-    @GetMapping("delete")
-    public String renderDeleteArtifactForm(Model model) {
-        model.addAttribute("artifact", "Delete Artifact");
-//        model.addAttribute("artifacts", ArtifactsData.getAll());
-        return "delete";
-    }
-    @PostMapping("delete")
-    public String processArtifactsForm(@RequestParam(required = false) int[] ArtifactIds) {
-
-        if (ArtifactIds != null) {
-            for (int id : ArtifactIds) {
-//                ArtifactData.remove(id);
-            }
-        }
-        return "redirect:";
+    @RequestMapping(value = "delete/{id}", method = RequestMethod.GET)
+    public String delete(@PathVariable("id") int id) {
+            artifactRepository.deleteById(id);
+        return "redirect";
     }
 }
 
