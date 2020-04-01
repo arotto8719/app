@@ -38,9 +38,17 @@
 
     <input type="submit" value="Add Item" />
 </form>
+        <form method="post" style="max-width:600px;">
+            <div class="form-group">
+                <label th:for="id">Id</label>
+                <input class="form-control" th:field="${artifact.id}" />
+                <a th:href="'/delete/'+${artifact.getId()}" onclick="return confirm('Are you sure?')">Delete</a>
+                <input type="submit" value="delete">
+            </div>
+        </form>
 
 <button type="back" name="action" value="back">back</button>
-<button type="delete" name="action" value="delete">delete</button>
+<!--<button type="delete" name="action" value="delete">delete</button>-->
 <button type="search" name="action" value="search">search</button>
 
 <button type="database" name="action" value="database">Database</button>

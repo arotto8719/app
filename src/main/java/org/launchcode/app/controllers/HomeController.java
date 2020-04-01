@@ -58,7 +58,7 @@ public class HomeController {
     @RequestMapping(value = "delete/{id}", method = RequestMethod.GET)
     public String delete(@PathVariable("id") int id) {
             artifactRepository.deleteById(id);
-        return "redirect";
+        return "redirect:/delete";
     }
 }
 
