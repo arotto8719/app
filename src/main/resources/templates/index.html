@@ -13,7 +13,7 @@
         <li th:each="artifact : ${artifacts}">
             <a th:href="@{'/view/' + ${artifact.name}}" th:text="${artifact.name}"></a>
             <a th:href="@{'/view/' + ${artifact.id}}" th:text="${artifact.id}"></a>
-<!--            <a th:href="'/delete/'+${artifact.getId()}">Delete</a>-->
+            <a th:href="'/delete/'+${artifact.getId()}">Delete</a>
             <a th:href="@{'/view/' + ${artifact.location}}" th:text="${artifact.location}"></a>
             <a th:href="@{'/view/' + ${artifact.description}}" th:text="${artifact.description}"></a>
         </li>
