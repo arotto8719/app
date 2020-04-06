@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org/">
 <head th:replace="fragments :: head">
-<!--//<link href="../static/css/app.css" th:href="@{/css/styles.css}" rel="stylesheet" />-->
+<!--<meta charset="UTF-8">-->
+<!--<link href="../static/css/app.css" th:href="@{/css/styles.css}" rel="stylesheet" />-->
 </head>
 <body>
 
@@ -16,6 +17,7 @@
             <a th:href="@{'/view/' + ${artifact.id}}" th:text="${artifact.id}"></a>
             <a th:href="@{'/view/' + ${artifact.location}}" th:text="${artifact.location}"></a>
             <a th:href="@{'/view/' + ${artifact.description}}" th:text="${artifact.description}"></a>
+            <a th:href="'/edit/'+${artifact.getId()}">Edit</a>
             <a th:href="'/delete/'+${artifact.getId()}">Delete</a>
         </li>
     </ul>

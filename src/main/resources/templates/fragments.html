@@ -2,7 +2,8 @@
 <html xmlns:th="http://www.thymeleaf.org/">
 
 <head th:fragment="head">
-
+    <meta charset="UTF-8">
+    <link href="../static/css/app.css" th:href="@{/css/styles.css}" rel="stylesheet" />
     <!-- Bootstrap stylesheets and script -->
     <link th:href="@{/css/bootstrap.css}" rel="stylesheet" />
     <link th:href="@{/css/app.css}" rel="stylesheet" />
@@ -28,6 +29,6 @@
 </div>
     <li><a th:href="@{/add}">Add</a></li>
     <li><a th:href="@{/search}">Search</a></li>
-<!--    <li><a th:href="@{/delete}">Delete</a></li>-->
+
 </body>
 </html>

@@ -15,31 +15,23 @@ import java.util.HashMap;
 @Controller
 public class HomeController {
 
-//    @GetMapping
-//    public String index() {
-//        return "index";
-//    }
-//
-//    @GetMapping
-//    public String add() {
-//        return "add";
-//    }
     @Autowired
     private ArtifactRepository artifactRepository;
 
     @RequestMapping(value = "/")
     public String index(Model model) {
-        model.addAttribute("search", "Search");
         model.addAttribute("add", "Add");
+        model.addAttribute("search", "Search");
+        model.addAttribute("edit", "Edit");
+        model.addAttribute("delete", "Delete");
         model.addAttribute("artifacts", artifactRepository.findAll());
-//        HashMap<String, String> actionChoices = new HashMap<>();
-//        actionChoices.put("search", "Search");
-//        actionChoices.put("add", "Add");
+        HashMap<String, String> actionChoices = new HashMap<>();
         return "index";
     }
 
     @GetMapping("add")
     public String displayAddArtifactForm(Model model) {
+        model.addAttribute(new Artifact());
         model.addAttribute("artifact", new Artifact());
         return "add";
     }
@@ -52,13 +44,23 @@ public class HomeController {
             return "add";
         } else {
             artifactRepository.save(newArtifact);
-            return "redirect:";
+            return "index";
         }
     }
+//    @GetMapping("edit")
+//    public String displayEditArtifactForm(Model model) {
+//        model.addAttribute(edit Artifact());
+//        model.addAttribute("artifact", edit Artifact());
+//        return "edit";
+//    }
     @RequestMapping(value = "delete/{id}", method = RequestMethod.GET)
     public String delete(@PathVariable("id") int id) {
             artifactRepository.deleteById(id);
-        return "redirect:/delete";
+        return "index";
+    }
+    @GetMapping("view/{Id}")
+    public String displayViewArtifact(Model model, @PathVariable int Id) {
+        return "index";
     }
 }
 
