@@ -1,30 +1,29 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org/">
 <head th:replace="fragments :: head"></head>
-<!--<link href="../static/css/app.css" th:href="@{/css/styles.css}" rel="stylesheet" />-->
 <table class="table table-responsive">
 
-<!--    <th >-->
-<!--    <td>Name</td>-->
-<!--    <td>ID</td>-->
-<!--    <td>Location</td>-->
-<!--    <td>Description</td>-->
-<!--    </th>-->
+    <th >
+            <td>Name</td>
+            <td>ID</td>
+            <td>Location</td>
+            <td>Description</td>
+            </th>
 
-<!--    <tr th:each="artifact : ${artifacts}">-->
-<!--        <td th:text="${artifact.id}"/>-->
-<!--        <td th:text="${artifact.name}"/>-->
-<!--        <td th:text="${artifact.location}"/>-->
-<!--        <td th:text="${artifact.description}"/>-->
-<!--        <td >-->
-<!--            <form th:action="@{delete}" method="post">-->
-<!--                <input type="hidden" name="id" th:value="${artifact.id}" />-->
-<!--                <input type="submit" value="Delete" class="btn btn-danger" />-->
-<!--                <button type="delete" name="action" value="delete">delete</button>-->
-<!--            </form>-->
-<!--        </td>-->
-<!--    </tr>-->
-<!--</table>-->
+            <tr th:each="artifact : ${artifacts}">
+                <td th:text="${artifact.id}"/>
+                <td th:text="${artifact.name}"/>
+                <td th:text="${artifact.location}"/>
+                <td th:text="${artifact.description}"/>
+                <td >
+                    <form th:action="@{delete}" method="post">
+                        <input type="hidden" name="id" th:value="${artifact.id}" />
+                        <input type="submit" value="Delete" class="btn btn-danger" />
+                        <button type="delete" name="action" value="delete">delete</button>
+                    </form>
+                </td>
+            </tr>
+        </table>
 <body class ="container  body-content">
 <h1 th:text="${'Artifact: ' + artifact.name}">Default Title</h1>
 <h2 th:text="${'Artifact: ' + artifact.id}">Default Title</h2>
@@ -69,10 +68,10 @@
         <input type="submit" value="delete">
     </form>
 
-<!--    <form action="" method="post">-->
-<!--        <p>Are you sure you want to delete?"</p>-->
-<!--    <input type="submit" value="Delete Selected Events" class="btn btn-danger">-->
-<!--    </form>-->
+    <form action="" method="post">
+        <p>Are you sure you want to delete?"</p>
+    <input type="submit" value="Delete Selected Events" class="btn btn-danger">
+    </form>
 </div>
 <button type="back" name="action" value="back">back</button>
 <button type="add" name="action" value="add">add</button>

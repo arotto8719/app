@@ -43,28 +43,30 @@
             <td>
                 <p>
                     Artifact Name:
-                    <a th:href="@{'/view/' + ${artifact.id}}" th:text="${artifact.id}"></a>
+                    <a th:href="@{'/view/' + ${artifact.name}}" th:text="${artifact.name}"></a>
                 </p>
-                <p th:text="${'Name: ' + artifact.name}"></p>
+<!--                <p th:text="${'Name: ' + artifact.name}"></p>-->
                 <p>
                     Artifact Id:
-                    <a th:href="@{'/view/' + ${artifact.id}}" th:text="${artifact.name}"></a>
+                    <a th:href="@{'/view/' + ${artifact.id}}" th:text="${artifact.id}"></a>
                 </p>
-                <p>
-                    Location:
-                <ul th:each="artifact : ${artifact.location}">
-                    <li>
-                        <a th:href="@{'/artifacts/view/' + ${artifact.id}}" th:text="${artifact.name}"></a>
-                    </li>
-                </ul>
-                </p>
-                Description:
-                <ul th:each="artifact : ${artifact .descriptions}">
-                    <li>
-                        <a th:href="@{'/artifacts/view/' + ${artifact.id}}" th:text="${artifact.name}"></a>
-                    </li>
-                </ul>
-                </p>
+<!--                <p th:text="${'Id: ' + artifact.id}"></p>-->
+<!--                </p>-->
+<!--                <p>-->
+<!--                    Location:-->
+<!--                <ul th:each="artifact : ${artifact.location}">-->
+<!--                    <li>-->
+<!--                        <a th:href="@{'/artifacts/view/' + ${artifact.id}}" th:text="${artifact.name}"></a>-->
+<!--                    </li>-->
+<!--                </ul>-->
+<!--                </p>-->
+<!--                Description:-->
+<!--                <ul th:each="artifact : ${artifact .descriptions}">-->
+<!--                    <li>-->
+<!--                        <a th:href="@{'/artifacts/view/' + ${artifact.id}}" th:text="${artifact.name}"></a>-->
+<!--                    </li>-->
+<!--                </ul>-->
+<!--                </p>-->
 
             </td>
         </tr>
