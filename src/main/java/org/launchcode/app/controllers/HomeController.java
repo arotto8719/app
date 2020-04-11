@@ -47,12 +47,22 @@ public class HomeController {
             return "index";
         }
     }
-//    @GetMapping("edit")
-//    public String displayEditArtifactForm(Model model) {
-//        model.addAttribute(edit Artifact());
+    @RequestMapping(value = "edit/{id}", method = RequestMethod.GET)
+    public String edit(@PathVariable("id") int id) {
+        artifactRepository.editById(id);
+        return "edit";
+    }
+    @GetMapping("edit/{Id}")
+    public String displayEditForm(Model model, @PathVariable int Id) {
+        model.addAttribute(new Artifact());
 //        model.addAttribute("artifact", edit Artifact());
-//        return "edit";
-//    }
+        return "index";
+    }
+    @PostMapping("edit/{Id}")
+    public String processEditForm(@RequestParam String artifactId) {
+        artifact.edit(new Artifact(artifactId));
+        return "redirect:";
+    }
     @RequestMapping(value = "delete/{id}", method = RequestMethod.GET)
     public String delete(@PathVariable("id") int id) {
             artifactRepository.deleteById(id);

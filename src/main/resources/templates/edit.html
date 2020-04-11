@@ -9,10 +9,12 @@
     <link th:href="@{/css/app.css}" rel="stylesheet" />
     <script type="text/javascript" th:src="@{/js/bootstrap.js}"></script>
 </head>
-<body   id="stage" class="theme">
-<body>
-<a href = "edit.html"> 1</a>
-<a href = "edit.html?id=2"> 2</a>
-<a href = "edit.html?id=3"> 3</a>
+<!--<body   id="stage" class="theme">-->
+<body th:action="@{/artifacts/edit}">
+<input type="hidden" th:value="${artifact.id}" name="artifactId" />
+<input type="edit" value="Edit Item" />
+<!--<a href = "edit.html"> 1</a>-->
+<!--<a href = "edit.html?id=2"> 2</a>-->
+<!--<a href = "edit.html?id=3"> 3</a>-->
 </body>
 </html>
