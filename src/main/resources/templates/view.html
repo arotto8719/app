@@ -1,34 +1,35 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org/">
 <head th:replace="fragments :: head"></head>
-<table class="table table-responsive">
 
-    <th >
-            <td>Name</td>
-            <td>ID</td>
-            <td>Location</td>
-            <td>Description</td>
-            </th>
+<!--<table class="table table-responsive">-->
 
-            <tr th:each="artifact : ${artifacts}">
-                <td th:text="${artifact.id}"/>
-                <td th:text="${artifact.name}"/>
-                <td th:text="${artifact.location}"/>
-                <td th:text="${artifact.description}"/>
-                <td >
-                    <form th:action="@{delete}" method="post">
-                        <input type="hidden" name="id" th:value="${artifact.id}" />
-                        <input type="submit" value="Delete" class="btn btn-danger" />
-                        <button type="delete" name="action" value="delete">delete</button>
-                    </form>
-                </td>
-            </tr>
-        </table>
-<body class ="container  body-content">
-<h1 th:text="${'Artifact: ' + artifact.name}">Default Title</h1>
-<h2 th:text="${'Artifact: ' + artifact.id}">Default Title</h2>
-<h3 th:text="${'Artifact: ' + artifact.location}">Default Title</h3>
-<h4 th:text="${'Artifact: ' + artifact.description}">Default Title</h4>
+<!--    <th >-->
+<!--            <td>Name</td>-->
+<!--            <td>ID</td>-->
+<!--            <td>Location</td>-->
+<!--            <td>Description</td>-->
+<!--            </th>-->
+
+<!--            <tr th:each="artifact : ${artifacts}">-->
+<!--                <td th:text="${artifact.id}"/>-->
+<!--                <td th:text="${artifact.name}"/>-->
+<!--                <td th:text="${artifact.location}"/>-->
+<!--                <td th:text="${artifact.description}"/>-->
+<!--                <td >-->
+<!--                    <form th:action="@{delete}" method="post">-->
+<!--                        <input type="hidden" name="id" th:value="${artifact.id}" />-->
+<!--                        <input type="submit" value="Delete" class="btn btn-danger" />-->
+<!--                        <button type="delete" name="action" value="delete">delete</button>-->
+<!--                    </form>-->
+<!--                </td>-->
+<!--            </tr>-->
+<!--        </table>-->
+<!--<body class ="container  body-content">-->
+<!--<h1 th:text="${'Artifact: ' + artifact.name}">Default Title</h1>-->
+<!--<h2 th:text="${'Artifact: ' + artifact.id}">Default Title</h2>-->
+<!--<h3 th:text="${'Artifact: ' + artifact.location}">Default Title</h3>-->
+<!--<h4 th:text="${'Artifact: ' + artifact.description}">Default Title</h4>-->
 
 <nav th:replace="fragments :: page-header"></nav>
 
@@ -40,21 +41,21 @@
     <p>
         Object Name: <a th:href="@{'/artifacts/view/' + ${view.artifact.name}}" th:text="${view.artifact.name}"></a>
     </p>
-    <p> ID:
+    <p> ID: <a th:href="@{'/artifacts/view/' + ${view.artifact.id}}" th:text="${view.artifact.id}"></a>
     <ul>
         <li th:each="id : ${artifact.id}">
             <a th:href="@{'/artifacts/view/' + ${artifact.id}}" th:text="${artifact.id}"></a>
         </li>
     </ul>
     </p>
-    <p> Location:
+    <p> Location: <a th:href="@{'/artifacts/view/' + ${view.artifact.location}}" th:text="${view.artifact.location}"></a>
     <ul>
         <li th:each="location : ${artifact.locations}">
             <a th:href="@{'/artifact/view/' + ${artifact.location}}" th:text="${artifact.location}"></a>
         </li>
     </ul>
     </p>
-    <p> Description:
+    <p> Description: <a th:href="@{'/artifacts/view/' + ${view.artifact.description}}" th:text="${view.artifact.description}"></a>
     <ul>
         <li th:each="description : ${artifact.descriptions}">
             <a th:href="@{'/artifact/view/' + ${artifact.description}}" th:text="${artifact.description}"></a>
@@ -73,11 +74,11 @@
     <input type="submit" value="Delete Selected Events" class="btn btn-danger">
     </form>
 </div>
-<button type="back" name="action" value="back">back</button>
-<button type="add" name="action" value="add">add</button>
-<button type="search" name="action" value="search">search</button>
-<button type="database" name="action" value="database">Database</button>
-<button type="images" name="action" value="images">Images</button>
-<button type="home" name="action" value="home">home</button>
+<!--<button type="back" name="action" value="back">back</button>-->
+<!--<button type="add" name="action" value="add">add</button>-->
+<!--<button type="search" name="action" value="search">search</button>-->
+<!--<button type="database" name="action" value="database">Database</button>-->
+<!--<button type="images" name="action" value="images">Images</button>-->
+<!--<button type="home" name="action" value="home">home</button>-->
 </body>
 </html>

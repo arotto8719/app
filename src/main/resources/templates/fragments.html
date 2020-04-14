@@ -8,7 +8,7 @@
     <link th:href="@{/css/app.css}" rel="stylesheet" />
     <script type="text/javascript" th:src="@{/js/bootstrap.js}"></script>
 
-    <title th:text="'Otto Genealogical Database' + ${title == null ? '' : ' :: ' + title}">Otto Family Genealogical Museum Database</title>
+    <title th:text="'Otto Museum Database' + ${title == null ? '' : ' :: ' + title}">Otto Museum Database</title>
 </head>
 
 <body>
@@ -16,8 +16,9 @@
 <div th:fragment="page-header" class="navbar navbar-inverse navbar-fixed-top">
     <div class="container">
         <div class="navbar-header">
-            <a th:href="@{/}" class="navbar-brand">Database</a>
-            <a th:href="@{/}" class="navbar-brand">Images</a>
+<!--            <a th:href="@{/}" class="navbar-brand">Database</a>-->
+<!--            <a th:href="@{/}" class="navbar-brand">Images</a>-->
+            <li><a th:href="@{/images}">Images</a></li>
         </div>
         <div th:fragment="page-header" class="navbar navbar-inverse navbar-fixed-bottom">
             <div class="navbar collapse collapse">
@@ -26,8 +27,6 @@
         </div>
     </div>
 </div>
-    <li><a th:href="@{/add}">Add</a></li>
-    <li><a th:href="@{/search}">Search</a></li>
 
 </body>
 </html>
