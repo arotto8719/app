@@ -1,25 +1,24 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org/">
-<head th:replace="fragments :: head">
-    <!--<meta charset="UTF-8">-->
-    <!--<link href="../static/css/app.css" th:href="@{/css/styles.css}" rel="stylesheet" />-->
-</head>
-<body>
+<head th:replace="fragments :: head"></head>
+<body class="container body-content">
+
+<h2>Otto Museum Database Images</h2>
 
 <div th:replace="fragments :: page-header"></div>
 
 <div class="container body-content">
-    <h2>Otto Museum Database Images</h2>
     <ul>
-    <img src="<c:url value="/resources/images/cannon.jpeg" />" alt="image" />Cannon 001<img>
-    <img src="<c:url value="/resources/images/IMG_E6216.JPG" />" alt="image" />Snow Globe 002<img>
-    <img src="<c:url value="/resources/images/blueegg.jpeg" />" alt="image" />Blue Egg 003<img>
-    <img src="<c:url value="/resources/images/bowl.jpeg" />" alt="image" />Blue Chinese Bowl 004<img>
-    <img src="<c:url value="/resources/images/mingvase.jpeg" />" alt="image" />Ming Vase 005<img>
-    <img src="<c:url value="/resources/images/cranes.jpeg" />" alt="image" />Cranes 006<img>
-    <img src="<c:url value="/resources/images/piggybank.jpeg" />" alt="image" />Cuba Piggy Bank 007<img>
+    <img src="<c:url value="/resources/images/cannon.jpeg" />" alt="image" />
+    <img src="<c:url value="/resources/images/IMG_E6216.JPG" />" alt="image" />
+    <img src="<c:url value="/resources/images/blueegg.jpeg" />" alt="image" />
+    <img src="<c:url value="/resources/images/bowl.jpeg" />" alt="image" />
+    <img src="<c:url value="/resources/images/mingvase.jpeg" />" alt="image" />
+    <img src="<c:url value="/resources/images/cranes.jpeg" />" alt="image" />
+    <img src="<c:url value="/resources/images/piggybank.jpeg" />" alt="image" />
+    <img>
     </ul>
 </div>
-    <input type="button" onclick="back" value="Back" />
+
 </body>
 </html>

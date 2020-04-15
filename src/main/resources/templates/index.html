@@ -9,8 +9,9 @@
 <div th:replace="fragments :: page-header"></div>
 
 <div class="container body-content">
+
     <h2>Otto Museum Database</h2>
-    <ul>
+
         <li th:each="artifact : ${artifacts}">
 
             <a th:href="@{'/view/' + ${artifact.name}}" th:text="${artifact.name}"></a>
@@ -26,9 +27,10 @@
             <a th:href="'/delete/'+${artifact.getId()}">Delete</a>
             </td>
         </li>
-    </ul>
 </div>
+
 <li><a th:href="@{/add}">Add</a></li>
 <li><a th:href="@{/search}">Search</a></li>
+
 </body>
 </html>

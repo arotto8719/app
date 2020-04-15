@@ -50,23 +50,18 @@ public class HomeController {
         }
     }
     @RequestMapping(value = "edit/{id}", method = RequestMethod.GET)
-    public String edit(@PathVariable("id") int id) {
-//        artifactRepository.editById(id);
+    public String displayEditForm(@ModelAttribute @Valid Artifact editArtifact,
+                                  Errors errors) {
+        artifactRepository.save(editArtifact);
         return "edit";
     }
-    @GetMapping("edit/{Id}")
-    public String displayEditForm(Model model, @PathVariable int Id) {
-        model.addAttribute(new Artifact());
-        model.addAttribute("artifact", new Artifact());
-//        model.addAttribute(edit Artifact());
-//        model.addAttribute("artifact", edit Artifact());
-        return "index";
-    }
+
     @PostMapping("edit/{Id}")
     @ResponseBody
     public String processEditForm(@ModelAttribute @Valid Artifact editArtifact,
                                   Errors errors) {
         if (errors.hasErrors()) {
+//            model.editAttribute("artifact", "edit");
             return "edit";
         } else {
             artifactRepository.save(editArtifact);
@@ -82,9 +77,10 @@ public class HomeController {
     public String displayViewArtifact(Model model, @PathVariable int Id) {
         return "index";
     }
+
+    @GetMapping("view/{Images}")
+    public String displayViewImage(Model model, @PathVariable int Id) {
+        return "index";
+    }
+
 }
-//    @GetMapping("view/{Images}")
-//    public String displayViewImage(Model model, @PathVariable int Id) {
-//        return "index";
-//    }
-//}
