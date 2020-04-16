@@ -49,25 +49,25 @@ public class HomeController {
             return "index";
         }
     }
-    @RequestMapping(value = "edit/{id}", method = RequestMethod.GET)
-    public String displayEditForm(@ModelAttribute @Valid Artifact editArtifact,
-                                  Errors errors) {
-        artifactRepository.save(editArtifact);
-        return "edit";
-    }
-
-    @PostMapping("edit/{Id}")
-    @ResponseBody
-    public String processEditForm(@ModelAttribute @Valid Artifact editArtifact,
-                                  Errors errors) {
-        if (errors.hasErrors()) {
-//            model.editAttribute("artifact", "edit");
-            return "edit";
-        } else {
-            artifactRepository.save(editArtifact);
-            return "index";
-        }
-    }
+//    @RequestMapping(value = "edit/{artifact}", method = RequestMethod.GET)
+//    public String displayEditForm(@ModelAttribute @Valid Artifact editArtifact,
+//                                  Errors errors) {
+//        artifactRepository.save(editArtifact);
+//        return "edit";
+//    }
+//
+//    @PostMapping("edit/{artifact}")
+//    @ResponseBody
+//    public String processEditForm(@ModelAttribute @Valid Artifact editArtifact,
+//                                  Errors errors) {
+//        if (errors.hasErrors()) {
+////            model.editAttribute("artifact", "edit");
+//            return "edit";
+//        } else {
+//            artifactRepository.save(editArtifact);
+//            return "index";
+//        }
+//    }
     @RequestMapping(value = "delete/{id}", method = RequestMethod.GET)
     public String delete(@PathVariable("id") int id) {
             artifactRepository.deleteById(id);
