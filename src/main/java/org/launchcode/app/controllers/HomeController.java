@@ -8,6 +8,7 @@ import org.springframework.ui.Model;
 import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.*;
 
+import javax.persistence.Id;
 import javax.validation.Valid;
 import java.util.HashMap;
 
@@ -26,6 +27,7 @@ public class HomeController {
         model.addAttribute("search", "Search");
         model.addAttribute("edit", "Edit");
         model.addAttribute("delete", "Delete");
+//        model.addAttribute("thePost", thePost);
         model.addAttribute("artifacts", artifactRepository.findAll());
         HashMap<String, String> actionChoices = new HashMap<>();
         return "index";
@@ -49,38 +51,36 @@ public class HomeController {
             return "index";
         }
     }
-//    @RequestMapping(value = "edit/{artifact}", method = RequestMethod.GET)
-//    public String displayEditForm(@ModelAttribute @Valid Artifact editArtifact,
-//                                  Errors errors) {
-//        artifactRepository.save(editArtifact);
+//    @RequestMapping(value="edit/{postId}", method = RequestMethod.GET)
+//    public String displayEditForm(Model model, @PathVariable int postId){
+//        Artifact thePost = artifactRepository.findById(postId).get();
+//        artifactRepository.save(thePost);
+//        model.addAttribute("thePost", thePost);
 //        return "edit";
 //    }
 //
-//    @PostMapping("edit/{artifact}")
-//    @ResponseBody
-//    public String processEditForm(@ModelAttribute @Valid Artifact editArtifact,
-//                                  Errors errors) {
-//        if (errors.hasErrors()) {
-////            model.editAttribute("artifact", "edit");
-//            return "edit";
-//        } else {
-//            artifactRepository.save(editArtifact);
-//            return "index";
-//        }
+//    @RequestMapping(value="edit", method=RequestMethod.POST)
+//    public String processEditForm(@RequestParam(value="post_id") int post_id, @RequestParam(value="name") String name, @RequestParam(value="description") String description, Model model) {
+//        Artifact thePost = artifactRepository.findById(post_id).get();
+//        thePost.setName(name);
+//        thePost.setDescription(description);
+//        artifactRepository.save(thePost);
+//        return "index";
 //    }
+
     @RequestMapping(value = "delete/{id}", method = RequestMethod.GET)
     public String delete(@PathVariable("id") int id) {
             artifactRepository.deleteById(id);
         return "index";
     }
-    @GetMapping("view/{Id}")
-    public String displayViewArtifact(Model model, @PathVariable int Id) {
+
+    @GetMapping("view/{artifactId}")
+    public String displayViewArtifactId(Model model, @PathVariable int Id) {
         return "index";
     }
 
-    @GetMapping("view/{Images}")
-    public String displayViewImage(Model model, @PathVariable int Id) {
-        return "index";
-    }
-
+//    @GetMapping("view/{Images}")
+//    public String displayViewImagesId(Model model, @PathVariable int Id) {
+//        return "images";
+//    }
 }

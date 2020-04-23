@@ -1,6 +1,6 @@
 <!--<!DOCTYPE html>-->
 <!--<html xmlns:th="http://www.thymeleaf.org/">-->
-
+<!--<head th:replace="fragments :: head"></head>-->
 <!--<body class="container body-content">-->
 
 <!--<div th:replace="fragments :: page-header"></div>-->
@@ -9,14 +9,13 @@
 
 <!--    <h1>Edit Item</h1>-->
 
-<!--    <form method="post" style="max-width:600px;">-->
 <!--        <div class="form-group">-->
 <!--            <label th:for="name">Name</label>-->
 <!--            <input class="form-control" th:field="${artifact.name}" />-->
 <!--            <span th:errors="${artifact.name}" class="error"></span>-->
 <!--        </div>-->
 
-<!--        <form method="post" style="max-width:200px;">-->
+<!--    <form method="post" style="max-width:600px;">-->
 <!--            <div class="form-group">-->
 <!--                <label th:for="id">ID</label>-->
 <!--                <input class="form-control" th:field="${artifact.id}" />-->
@@ -40,23 +39,19 @@
 <!--                    <input type="submit" value="Edit Item" />-->
 <!--                </form>-->
 
-<!--&lt;!&ndash;<div class="form-group" style="max-width:600px;">&ndash;&gt;-->
-<!--&lt;!&ndash;    <body th:action="@{/artifacts/edit}">&ndash;&gt;-->
-<!--&lt;!&ndash;    <label>Name</label>&ndash;&gt;-->
-<!--&lt;!&ndash;        <input type="edit" name="name" class="form-control">&ndash;&gt;-->
-<!--&lt;!&ndash;        <input type="hidden" th:value="${artifact.name}" name="artifactName" />&ndash;&gt;-->
+<!--<div class="form-group" style="max-width:600px;">-->
+<!--    <body th:action="@{/artifacts/edit}">-->
+<!--    <label>Name</label>-->
+<!--        <input type="edit" name="name" class="form-control">-->
+<!--        <input type="hidden" th:value="${artifact.name}" name="artifactName" />-->
 
-<!--&lt;!&ndash;</div>&ndash;&gt;-->
-<!--&lt;!&ndash;    <div class="form-group" style="max-width:600px;">&ndash;&gt;-->
-<!--&lt;!&ndash;    <label>&ndash;&gt;-->
-<!--&lt;!&ndash;        Id&ndash;&gt;-->
-<!--&lt;!&ndash;        <input type="edit" name="edit"  class="form-control">&ndash;&gt;-->
-<!--&lt;!&ndash;        <input type="hidden" th:value="${artifact.id}" name="artifactId" />&ndash;&gt;-->
-<!--&lt;!&ndash;    </label>&ndash;&gt;-->
-<!--&lt;!&ndash;    <input type="edit" value="Edit Item" />&ndash;&gt;-->
 <!--</div>-->
-<!--&lt;!&ndash;<a href = "edit.html"> 1</a>&ndash;&gt;-->
-<!--&lt;!&ndash;<a href = "edit.html?id=2"> 2</a>&ndash;&gt;-->
-<!--&lt;!&ndash;<a href = "edit.html?id=3"> 3</a>&ndash;&gt;-->
+<!--    <div class="form-group" style="max-width:600px;">-->
+<!--    <label>Id</label>-->
+<!--        <input type="edit" name="edit"  class="form-control">-->
+<!--        <input type="hidden" th:value="${artifact.id}" name="artifactId" />-->
+
+<!--    <input type="edit" value="Edit Item" />-->
+<!--</div>-->
 <!--</body>-->
 <!--</html>-->
