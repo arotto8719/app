@@ -22,7 +22,7 @@ public class HomeController {
     @RequestMapping(value = "/")
     public String index(Model model) {
 //        model.addAttribute("database", "Database");
-        model.addAttribute("images", "Images");
+//        model.addAttribute("images", "Images");
         model.addAttribute("add", "Add");
         model.addAttribute("search", "Search");
         model.addAttribute("edit", "Edit");
@@ -51,22 +51,22 @@ public class HomeController {
             return "index";
         }
     }
-//    @RequestMapping(value="edit/{postId}", method = RequestMethod.GET)
-//    public String displayEditForm(Model model, @PathVariable int postId){
-//        Artifact thePost = artifactRepository.findById(postId).get();
-//        artifactRepository.save(thePost);
-//        model.addAttribute("thePost", thePost);
-//        return "edit";
-//    }
-//
-//    @RequestMapping(value="edit", method=RequestMethod.POST)
-//    public String processEditForm(@RequestParam(value="post_id") int post_id, @RequestParam(value="name") String name, @RequestParam(value="description") String description, Model model) {
-//        Artifact thePost = artifactRepository.findById(post_id).get();
-//        thePost.setName(name);
-//        thePost.setDescription(description);
-//        artifactRepository.save(thePost);
-//        return "index";
-//    }
+    @RequestMapping(value="edit/{postId}", method = RequestMethod.GET)
+    public String displayEditForm(Model model, @PathVariable int postId){
+        Artifact thePost = artifactRepository.findById(postId).get();
+        artifactRepository.save(thePost);
+        model.addAttribute("thePost", thePost);
+        return "edit";
+    }
+    @RequestMapping(value="edit", method=RequestMethod.POST)
+    public String processEditForm(@RequestParam(value="post_id") int post_id, @RequestParam(value="name") String name, @RequestParam(value="location") String location, @RequestParam(value="description") String description, Model model) {
+        Artifact thePost = artifactRepository.findById(post_id).get();
+        thePost.setName(name);
+        thePost.setLocation(location);
+        thePost.setDescription(description);
+        artifactRepository.save(thePost);
+        return "index";
+    }
 
     @RequestMapping(value = "delete/{id}", method = RequestMethod.GET)
     public String delete(@PathVariable("id") int id) {
