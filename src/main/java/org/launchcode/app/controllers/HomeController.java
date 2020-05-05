@@ -51,25 +51,11 @@ public class HomeController {
             return "index";
         }
     }
-//    @RequestMapping(value="edit/{postId}", method = RequestMethod.GET)
-//    public String displayEditForm(Model model, @PathVariable int postId){
-//        Post thePost = PostData.findById(postId).get();
-//        model.addAttribute("thePost", thePost);
-//        return "pages/edit";
-//    }
-//
-//    @RequestMapping(value="edit", method=RequestMethod.POST)
-//    public String processEditForm(@RequestParam(value="post_id") int post_id, @RequestParam(value="title") String title, @RequestParam(value="description") String description, Model model) {
-//        Post thePost = PostData.findById(post_id).get();
-//        thePost.setTitle(title);
-//        thePost.setDescription(description);
-//        PostData.save(thePost);
-//        return "redirect:";
-//    }
+
     @RequestMapping(value="edit/{postId}", method = RequestMethod.GET)
     public String displayEditForm(Model model, @PathVariable int postId, Error error){
         Artifact thePost = artifactRepository.findById(postId).get();
-//        artifactRepository.save(thePost);
+        artifactRepository.save(thePost);
         model.addAttribute("thePost", thePost);
         return "index";
     }
